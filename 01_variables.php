@@ -32,7 +32,7 @@ define("PI2", 3.14);
 echo "<br>";
 $num1 = 1;
 $num2 = 2;
-echo "Suma de dos números: ". ($num1 + $num2);
+echo "Suma de dos números: " . ($num1 + $num2);
 
 echo "<br>";
 
@@ -60,6 +60,106 @@ echo "<br>";
 
 
 foreach ($array_asociativo as $item) {
-    echo $item."<br>";
+    echo $item . "<br>";
 }
 
+$arrayColores = ['rojo', 'verde', "azul"];
+for ($i = 0; $i < count($arrayColores); $i++) {
+    echo $arrayColores[$i] . "<br>";
+}
+
+
+echo "============================";
+$iterador = 10;
+while ($iterador <= 5) {
+    echo $iterador . "<br>";
+    $iterador++;
+}
+
+echo "============================";
+echo "<br>";
+$iterador = 10;
+do {
+    echo $iterador . "<br>";
+    $iterador++;
+} while ($iterador <= 5);
+
+echo "============================";
+echo "<br>";
+
+$tiempo = "lluvioso";
+
+if ($tiempo == "soleado") {
+    echo "Me voy de paseo";
+} else if ($tiempo == "lluvioso") {
+    echo "A programar con PHP";
+} else {
+    echo "Me voy al cine";
+}
+
+echo "<br>";
+
+switch ($tiempo) {
+    case "soleado":
+        echo "Me voy de paseo";
+        break;
+    case "lluvioso":
+        echo "A programar con PHP";
+        break;
+    default :
+        echo "Me voy al cine";
+}
+
+echo "<br>";
+
+// echo ("1" === 1);
+
+$num = 10.5;
+echo gettype($num);
+echo "<br>";
+$num = (string)$num;
+echo gettype($num);
+echo "<br>";
+$num = (int)$num;
+echo gettype($num);
+echo "<br>";
+
+echo 'El número es $num';
+echo "<br>";
+echo "El número es $num"; // Similar a `${num}`
+echo "<br>";
+
+// MÉTODOS DE ARRAYS
+print_r($arrayColores);
+echo "<br>";
+array_push($arrayColores, "blanco");
+print_r($arrayColores);
+echo "<br>";
+array_unshift($arrayColores, "negro");
+print_r($arrayColores);
+echo "<br>";
+array_pop($arrayColores);
+print_r($arrayColores);
+echo "<br>";
+array_shift($arrayColores);
+print_r($arrayColores);
+echo "<br>";
+unset($arrayColores[1]);
+print_r($arrayColores);
+echo "<br>";
+
+
+$datosAlumno = ["nombre" => "Jordi", "edad" => 30, "poblacion" => "BCN"];
+unset($datosAlumno['poblacion']);
+$datosAlumno['ciudad'] = "Cornellà";
+$datosAlumno['nombre'] = "Juan";
+print_r($datosAlumno);
+
+$nombre = $datosAlumno['nombre'];
+echo "Nombre: $nombre <br>";
+echo 'Nombre: ' . $nombre . '<br>';
+
+echo "<br>";echo "<br>";
+echo "<br>";echo "<br>";echo "<br>";
+echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+echo "<br>";echo "<br>";echo "<br>";
