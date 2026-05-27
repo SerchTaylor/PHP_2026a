@@ -46,7 +46,17 @@ echo "El beneficio actual es de $beneficio €";
 // Nota3: no podemos vender el producto si no hay suficiente stock.
 
 
-function venderProducto() {
+function venderProducto($nombreProducto, $cantidadAVender) {
 
 }
 // ¿Cuál es el beneficio ahora?
+// Muestra el contenido de $productos
+
+
+// 3. Crea una función para comprar productos.
+// Nota1 : No podemos gastar más dinero del que tenemos.
+// Nota2 : Si el producto ya está en $productos 
+// se incorporan los datos, pero NO duplicamos el producto.
+// Nota3 : Si el producto no está lo añadimos.
+// Nota4 : Hay que actualizar el $cash y el beneficio después de la compra.
+
