@@ -59,4 +59,12 @@ function venderProducto($nombreProducto, $cantidadAVender) {
 // se incorporan los datos, pero NO duplicamos el producto.
 // Nota3 : Si el producto no está lo añadimos.
 // Nota4 : Hay que actualizar el $cash y el beneficio después de la compra.
+function comprarProducto($productos, $nombreProducto, $cantidadAComprar, $precioCompra, $precioVenta, $unidad) {
 
+}
+
+comprarProducto()
+
+// ¿Cuál es el beneficio ahora?
+// ¿Cuánto queda en $cash?
+// Muestra el contenido de $productos
