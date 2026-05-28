@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario con PHP</title>
+    <style>
+        div {
+            width: 80%;
+            margin: 1rem auto;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Formulario básico</h1>
+    <form action="11_datos.php" method="GET">
+      <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" />
+      </div>
+      <div>
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+      </div>
+      <div>
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label for="fecha">Fecha</label>
+        <input type="datetime-local" name="fecha" id="fecha" />
+      </div>
+      <div>
+        <input type="radio" name="color" value="rojo" id="rojo" />
+        <label for="rojo">Rojo</label>
+        <input type="radio" name="color" id="verde" value="verde" />
+        <label for="verde">Verde</label>
+        <input type="radio" name="color" id="azul" value="azul"/>
+        <label for="azul">Azul</label>
+      </div>
+      <div>
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+  </body>
+</html>
