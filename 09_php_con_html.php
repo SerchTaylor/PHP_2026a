@@ -13,7 +13,13 @@ array_push($arrayCoches, "Audi");
 $arrayCoches[] = "BMW";
 
 // print_r($arrayCoches);
-
+$mascotas = [
+    ["especie" => "perro", "nombre" => "Bup", "edad" => 3, "dueño" => "Peter"],
+    ["especie" => "gato", "nombre" => "Mishi", "edad" => 2, "dueño" => "Louise"],
+    ["especie" => "conejo", "nombre" => "Alabrasa", "edad" => 1, "dueño" => "Clark"],
+    ["especie" => "pulpo", "nombre" => "Neptuno", "edad" => 1, "dueño" => "Neptuno"]
+];
+$mascotas[] = ["especie" => "vaca", "nombre" => "Mariana", "edad" => 4, "dueño" => "Michel"];
 
 
 ?>
@@ -26,7 +32,17 @@ $arrayCoches[] = "BMW";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML</title>
     <style>
-
+        body {
+            padding: 5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: .5rem;
+            text-align: left;
+        }
     </style>
     <script>
 
@@ -91,6 +107,25 @@ $arrayCoches[] = "BMW";
 
         El mensaje será : Estamos en primavera
         -->
+
+        <h2>Tabla para las mascotas</h2>
+        <table border="1">
+            <tr>
+                <th>Especie</th>
+                <th>Nombre de la mascota</th>
+                <th>Edad</th>
+                <th>Nombre del dueño</th>
+            </tr>
+            <?php foreach($mascotas as $mascota) : ?>
+                <tr>
+                    <td><?= $mascota['especie'] ?></td>
+                    <td><?= $mascota['nombre'] ?></td>
+                    <td><?= $mascota['edad'] ?></td>
+                    <td><?= $mascota['dueño'] ?></td>
+                </tr>
+            <?php endforeach ?>
+        </table>
+
 </body>
 
 </html>
