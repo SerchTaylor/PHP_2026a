@@ -1,0 +1,5 @@
+https://openweathermap.org/api/current?collection=current_forecast
+
+?q
+
+https://api.openweathermap.org/data/2.5/weather?q={city name},{country code}&appid={API key}
