@@ -1,19 +1,24 @@
 <?php
-
-print_r($_GET);
-
 // Obtener la clave de acceso a OpenWeatherMap
 require_once "KEY.php"; // la clave está en $API_KEY
 
-// Datos de prueba de la URL
-$city = $_GET['city'];
-$countryCode = $_GET['countryCode'];
+$city = "Barcelona";
+$countryCode = "ES";
 $units = "units=metric";
 $lang = "lang=es";
 
+if ($_GET) {
+    print_r($_GET);
+// Datos de prueba de la URL
+$city = $_GET['city'];
+$countryCode = $_GET['countryCode'];
+}
+
+
+
 $URL = "https://api.openweathermap.org/data/2.5/weather?q=$city,$countryCode&$units&$lang&appid=$API_KEY";
 // echo $URL;
-echo "<br><br>";
+// echo "<br><br>";
 
 $file = file_get_contents($URL);
 
@@ -40,6 +45,13 @@ $wind = $json_meteo['wind']['speed'];
 
 $rutaIcono = "https://www.imelcf.gob.pa/wp-content/plugins/location-weather/assets/images/icons/weather-icons/$icon.svg";
 
+// URL pronostico cada 3 horas
+/*
+$URL_forecast = "https://api.openweathermap.org/data/2.5/forecast?q="
+    .$city.",".$countryCode."&".$units."&".$lang."&"."appid=$API_KEY";
+
+    echo "<br>".$URL_forecast."<br>";
+    */
 ?>
 
 <!DOCTYPE html>
@@ -64,9 +76,8 @@ $rutaIcono = "https://www.imelcf.gob.pa/wp-content/plugins/location-weather/asse
     <img src="<?= $rutaIcono ?>" alt="<?= $description ?>">
 
     <form method="get">
-
         <label for="city">Ciudad</label>
-        <input type="text" id="city" name="city" minlength="2" maxlength="20">
+        <input type="text" id="city" name="city" minlength="2" maxlength="100">
         <label for="countryCode">Código de país</label>
         <input type="text" id="countryCode" name="countryCode" minlength="2" maxlength="2">
         <button type="submit">Buscar</button>
