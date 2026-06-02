@@ -65,3 +65,7 @@ body > div {
         color:white;
     }
 }
+
+.hidden {
+    display: none;
+}
