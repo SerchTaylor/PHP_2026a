@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+    <div>
+        <h1>Formulario de registro</h1>
+        <div>
+            <form action="registro.php" method="post">
+                <div>
+                    <label for="nombre">Nombre : </label>
+                    <input type="text" id="nombre" name="nombre">
+                    <p id="error-nombre">El nombre debe tener dos letras y no debe contener caracteres especiales (<>/+, etc.).</p>
+                </div>
+                <div>
+                    <label for="email">Email : </label>
+                    <input type="email" name="email" id="email">
+                    <p id="error-email">Debe introducir un email válido</p>
+                </div>
+                <div>
+                    <label for="password">Contraseña : </label>
+                    <input type="password" id="password" name="password">
+                    <p id="error-password">La contraseña debe tener 8 caracteres, con como mínimo una letra mayúscula, una letra minúscula, un número y un carácter especial.</p>
+                </div>
+                <div>
+                    <label for="edad">Edad : </label>
+                    <input type="number" name="edad" id="edad" min="0" max="120">
+                    <p id="error-edad">Debes ser mayor de 18 años.</p>
+                </div>
+                <div>
+                    <label for="idioma">Idioma : </label>
+                    <select name="idioma" id="idioma">
+                        <option value="cat" selected>Català</option>
+                        <option value="esp">Español</option>
+                        <option value="eng">English</option>
+                    </select>
+                </div>
+                <div id="buttons">
+                    <button type="submit">Enviar datos</button>
+                    <button type="reset">Borrar formulario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
