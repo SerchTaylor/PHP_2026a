@@ -1,0 +1,23 @@
+[
+    {
+        "nombre": "Clark",
+        "email": "clark@kent.com",
+        "password": "Any2026!",
+        "edad": "25",
+        "idioma": "eng"
+    },
+    {
+        "nombre": "Clark",
+        "email": "clark@kent.com",
+        "password": "Any2027$",
+        "edad": "25",
+        "idioma": "esp"
+    },
+    {
+        "nombre": "Clark",
+        "email": "clark@kent.com",
+        "password": "$2y$10$XcErn3jmDOJ9ZkFiNp\/kIeqjzuVww6\/R\/6Qj\/Xx6aqT7m5QwDGPP6",
+        "edad": "25",
+        "idioma": "cat"
+    }
+]

@@ -52,23 +52,48 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         exit();
     }
 
-    echo "OK!!!!";
 
-    // Guardar los datos en un fichero externo en formato JSON
+
+
+
+    // Encriptar la contraseña
+    $password_encriptada = password_hash($password_saneada, PASSWORD_DEFAULT);
+
+    // Array asociativo con los datos del formulario
     $nuevo_usuario = [
-        "nombre" => $nombre_saneado
+        "nombre" => $nombre_saneado,
+        "email" => $email_saneado,
+        "password" => $password_encriptada,
+        "edad" => $edad_saneada,
+        "idioma" => $idioma_saneado
     ];
 
-
+    // variables para guardar los datos en un fichero externo en formato JSON
     $archivo_json = "datos.json";
     $usuarios_existentes = [];
 
     if (file_exists($archivo_json)) {
         $contenido_json = file_get_contents($archivo_json);
         $usuarios_existentes = json_decode($contenido_json, true) ?? [];
+
+        foreach($usuarios_existentes as $usuario) {
+            if ($usuario['email'] == $email_saneado) {
+                header("Location: registro.html?error=email_duplicado");
+                exit();
+            }
+        }
     }
 
     $usuarios_existentes[] = $nuevo_usuario;
+    $usuariosEncode = json_encode($usuarios_existentes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+    try {
+        file_put_contents($archivo_json, $usuariosEncode);
+    } catch (Error $e) {
+        echo $e->getMessage();
+    }
+
+    echo "OK!!!!";
 } else {
     // Si no hay datos envíados por el formulario
     header("Location: registro.html"); // redirigimos al formulario inicial

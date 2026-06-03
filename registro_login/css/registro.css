@@ -44,6 +44,7 @@ body > div {
         font-size: .8rem;
         color: red;
         margin-top: .5rem;
+        height: 2rem;
     }
 }
 
@@ -70,3 +71,4 @@ body > div {
 .hidden {
     display: none;
 }
+
