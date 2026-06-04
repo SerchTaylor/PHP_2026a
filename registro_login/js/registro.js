@@ -5,16 +5,24 @@ const pEmailDuplicado = document.querySelector("body > div p:first-child")
 let errorNombre = document.getElementById("error-nombre")
 let errorEmail = document.getElementById("error-email");
 let errorPassword = document.getElementById("error-password");
-let errorEdad = document.getElementById("error-edad");
+// let errorEdad = document.getElementById("error-edad");
 
 // Obtener el evento de carga de la página
 document.addEventListener("DOMContentLoaded", (e) => {
 
+  errorNombre.textContent = ""
+  errorEmail.textContent = ""
+  errorPassword.textContent = ""
+  // errorEdad.textContent = ""
+
   const URLPARAMS = new URLSearchParams(window.location.search)
   console.log(URLPARAMS);
+  URLPARAMS.forEach(url => {
+    console.log(url);
+  });
 
   if(URLPARAMS.get("error") === "email_duplicado") {
-    pEmailDuplicado.textContent = "El email ya existe. Acceda desde el login"
+    pEmailDuplicado.textContent = "El email ya existe. Utilice otro para registrarse o acceda desde el login"
   }
 });
 
@@ -36,21 +44,21 @@ document.getElementById("formRegistro").addEventListener("submit", (e) => {
 
   const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!regexEmail.test(email)) {
-    errorEmail.classList.remove("hidden");
+    errorEmail.textContent = "Debe introducir un email válido."
     formularioValido = false;
   }
 
   const regexPassword =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8}$/;
   if (!regexPassword.test(password)) {
-    errorPassword.classList.remove("hidden");
+    errorPassword.textContent = "La contraseña debe tener 8 caracteres, con como mínimo una letra mayúscula, una letra minúscula, un número y un carácter especial."
     formularioValido = false;
   }
 
-  if (parseInt(edad) < 18) {
-    errorEdad.classList.remove("hidden");
-    formularioValido = false;
-  }
+  // if (parseInt(edad) < 18) {
+  //   errorEdad.textContent = "Debes ser mayor de 18 años.";
+  //   formularioValido = false;
+  // }
 
   if (!formularioValido) {
     e.preventDefault();

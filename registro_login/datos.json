@@ -1,23 +1,9 @@
 [
     {
-        "nombre": "Clark",
-        "email": "clark@kent.com",
-        "password": "Any2026!",
-        "edad": "25",
-        "idioma": "eng"
-    },
-    {
-        "nombre": "Clark",
-        "email": "clark@kent.com",
-        "password": "Any2027$",
-        "edad": "25",
-        "idioma": "esp"
-    },
-    {
-        "nombre": "Clark",
-        "email": "clark@kent.com",
-        "password": "$2y$10$XcErn3jmDOJ9ZkFiNp\/kIeqjzuVww6\/R\/6Qj\/Xx6aqT7m5QwDGPP6",
-        "edad": "25",
-        "idioma": "cat"
+        "nombre": "Peter",
+        "email": "peter@spiderman.com",
+        "password": "$2y$10$XXDje07ULomXgmW.IplX7.vxaM55Ycn4ZnNUHMps0kcK9.oaW93Wm",
+        "edad": "34",
+        "idioma": "ca"
     }
 ]

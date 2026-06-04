@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Si registro.php detecta que se le ha enviado algo por POST
@@ -93,7 +93,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         echo $e->getMessage();
     }
 
-    echo "OK!!!!";
+    $_SESSION['nombre'] = $nombre_saneado;
+    $_SESSION['idioma'] = $idioma_saneado;
+    header("Location: main.php");
+
 } else {
     // Si no hay datos envíados por el formulario
     header("Location: registro.html"); // redirigimos al formulario inicial

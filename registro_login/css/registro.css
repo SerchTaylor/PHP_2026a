@@ -20,11 +20,15 @@ body {
     height: 100vh;
 }
 
+h1 {
+    font-size: 1.5rem;
+}
+
 body > div {
     background-color: var(--backcolorForm);
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 600px;
     padding: 2rem;
     border: 2px solid var(--borderColor);
     border-radius: 5px;
@@ -68,7 +72,7 @@ body > div {
     }
 }
 
-.hidden {
-    display: none;
+body > div p:first-child {
+    font-size: 1rem;
 }
 
