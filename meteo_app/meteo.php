@@ -1,4 +1,7 @@
 <?php
+// Desactivar los mensajes de warning
+error_reporting(0);
+
 // Obtener la clave de acceso a OpenWeatherMap
 require_once "KEY.php"; // la clave está en $API_KEY
 
@@ -97,11 +100,28 @@ $URL_forecast = "https://api.openweathermap.org/data/2.5/forecast?q="
             $humidity = $json_meteo['main']['humidity'];
             $wind = $json_meteo['wind']['speed'];
             $rutaIcono = "https://www.imelcf.gob.pa/wp-content/plugins/location-weather/assets/images/icons/weather-icons/$icon.svg";
+
+
+            $dt = $json_meteo['dt'];
+            $timezone = $json_meteo['timezone'];
+            $sunrise = $json_meteo['sys']['sunrise'];
+            $sunset = $json_meteo['sys']['sunset'];
+
+            // Hora actual en la ciudad consultada
+            $hora_consulta = formatearFecha($dt, $timezone);
+            $sortida_sol = formatearFecha($sunrise, $timezone);
+            $posta_sol = formatearFecha($sunset, $timezone);
+
         ?>
             <p><?= $city ?></p>
             <p><?= $temp ?></p>
             <p><?= $icon ?></p>
             <img src="<?= $rutaIcono ?>" alt="<?= $description ?>">
+            <p><?= $hora_consulta ?></p>
+            <p><?= $sortida_sol ?></p>
+            <p><?= $posta_sol ?></p>
+
+
         <?php
         } else {
             $error = true;
@@ -114,3 +134,15 @@ $URL_forecast = "https://api.openweathermap.org/data/2.5/forecast?q="
 </body>
 
 </html>
+
+<?php
+
+function formatearFecha($timestamp, $timezone)
+{
+
+    $temps_corregit = $timestamp + $timezone;
+
+    $date = new DateTime("@" . $temps_corregit);
+
+    return $date->format('H:i:s');
+}

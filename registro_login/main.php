@@ -6,11 +6,15 @@ $idioma = $_SESSION['idioma'];
 $textos_json = "textos.json";
 
 $titulo = "Página principal";
+$registroOk = "Registro completado correctamente.";
+$bienvenido = "¡Bienvenido/a a nuestra página,";
+$gracias = "Gracias por registrarte. Tu información ha sido procesada correctamente.";
 
 if (file_exists($textos_json)) {
     $contenido_fichero = file_get_contents($textos_json);
     $arrayText = json_decode($contenido_fichero, true);
-    $titulo = $arrayText["$idioma"]['titulo'];
+    $titulo = $arrayText[$idioma]['titulo'];
+    $bienvenido = $arrayText[$idioma]['bienvenido'];
 }
 ?>
 
@@ -25,9 +29,13 @@ if (file_exists($textos_json)) {
     <h1>
         <?= $titulo ?>
     </h1>
-    <h2>Registro completado correctamente.</h2>
-    <p>¡Bienvenido/a a nuestra página, <?= $nombre ?>!</p>
+    <h2><?= $registroOk ?></h2>
+    <p> <?=$bienvenido." ". $nombre ?>!</p>
 
-    <p>Gracias por registrarte. Tu información ha sido procesada correctamente.</p>
+    <p><?= $gracias ?></p>
+
+    <form action="logout.php" method="post">
+        <button type="submit">Cerrar sesión</button>
+    </form>
 </body>
 </html>

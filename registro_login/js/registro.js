@@ -32,7 +32,7 @@ document.getElementById("formRegistro").addEventListener("submit", (e) => {
 
   let nombre = document.getElementById("nombre").value.trim();
   let email = document.getElementById("email").value.trim().toLocaleLowerCase();
-  let password = document.getElementById("password").value.trim();
+  let password = document.getElementById("password").value;
   let edad = document.getElementById("edad").value;
   let idioma = document.getElementById("idioma").value;
 

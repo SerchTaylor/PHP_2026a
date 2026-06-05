@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/registro.css">
+    <script src="js/login.js" defer></script>
+</head>
+<body>
+    <div>
+        <p></p>
+        <h1>Formulario de acceso</h1>
+        <div>
+            <form action="login.php" method="post" id="formLogin">
+                
+                <div>
+                    <label for="email">Email : </label>
+                    <input type="email" name="email" id="email">
+                    <p id="error-email"></p>
+                </div>
+                <div>
+                    <label for="password">Contraseña : </label>
+                    <input type="password" id="password" name="password" minlength="8" maxlength="8">
+                    <p id="error-password"></p>
+                </div>
+                
+                <div id="buttons">
+                    <button type="submit">Enviar datos</button>
+                    <button type="reset">Borrar formulario</button>
+                </div>
+                <div>
+                    <p id="pLogin">
+                        <a href="registro.html">No tengo cuenta</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

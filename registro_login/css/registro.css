@@ -76,3 +76,7 @@ body > div p:first-child {
     font-size: 1rem;
 }
 
+
+#pLogin {
+    text-align: center;
+}

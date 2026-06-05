@@ -1,5 +1,11 @@
 {
-    "es" : {"titulo": "Página principal"},
-    "ca" : {"titulo": "Pàgina principal"},
-    "en" : {"titulo": "Main page"}
+  "es": {
+    "titulo": "Página principal",
+    "bienvenido": "¡Bienvenido/a a nuestra página,"
+  },
+  "ca": {
+    "titulo": "Pàgina principal",
+    "bienvenido": "Benvingut/da a la nostra pàgina,"
+  },
+  "en": { "titulo": "Main page", "bienvenido": "Welcome to our page," }
 }
