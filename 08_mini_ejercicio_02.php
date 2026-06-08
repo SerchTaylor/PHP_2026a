@@ -68,3 +68,10 @@ comprarProducto()
 // ¿Cuál es el beneficio ahora?
 // ¿Cuánto queda en $cash?
 // Muestra el contenido de $productos
+
+
+// 4. Guardar los datos de los productos  para que tengan persistencia
+
+// 5. Guardar las operaciones de compra-venta
+
+// 6. Mostrar en una tabla de un fichero HTML las operaciones realizadas

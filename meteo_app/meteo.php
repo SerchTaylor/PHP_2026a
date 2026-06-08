@@ -26,14 +26,24 @@ $cityURL = urlencode($city);
 // $cityNameCorrected = implode(" ", $cityArrayNew);
 // echo "Ciutat : " . $city;
 
-
-$URL = "https://api.openweathermap.org/data/2.5/weather?q=$cityURL,$countryCode&$units&$lang&appid=$API_KEY";
+$URL_base = "https://api.openweathermap.org/data/2.5/";
+$URL_weather = "weather?";
+$URL_forecast = "forecast?";
+$URL_params = "q=$cityURL,$countryCode&$units&$lang&appid=$API_KEY";
+$URL_actual = $URL_base.$URL_weather.$URL_params;
 echo "<br><br>";
-echo "URL : " . $URL;
+echo "URL : " . $URL_actual;
 echo "<br><br>";
 
+// URL pronostico cada 3 horas
 
-$file = file_get_contents($URL);
+$URL_pronostic = $URL_base.$URL_forecast.$URL_params;
+
+    echo "<br>".$URL_pronostic."<br>";
+
+
+
+$file = file_get_contents($URL_actual);
 echo "<br><br>";
 // echo "FILE : " . $file;
 echo "<br><br>";
@@ -54,13 +64,7 @@ if ($json_meteo === null) {
 
 
 
-// URL pronostico cada 3 horas
-/*
-$URL_forecast = "https://api.openweathermap.org/data/2.5/forecast?q="
-    .$city.",".$countryCode."&".$units."&".$lang."&"."appid=$API_KEY";
 
-    echo "<br>".$URL_forecast."<br>";
-    */
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +97,7 @@ $URL_forecast = "https://api.openweathermap.org/data/2.5/forecast?q="
         if ($json_meteo['cod'] == 200) {
             $description = $json_meteo["weather"][0]['description'];
             $icon = $json_meteo["weather"][0]['icon'];
-            $temp = $json_meteo['main']['temp'];
+            $temp = round($json_meteo['main']['temp'], 0);
             $feels_like = $json_meteo['main']['feels_like'];
             $temp_min = $json_meteo['main']['temp_min'];
             $temp_max = $json_meteo['main']['temp_max'];
